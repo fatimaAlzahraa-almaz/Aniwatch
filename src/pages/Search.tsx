@@ -5,7 +5,7 @@ const Search = () => {
 
   const[searchParams]=useSearchParams();
   const que=searchParams.get('q');
-  const{data,isLoading}=useAnime({perPage:30,search:que});
+  const{data}=useAnime({perPage:30,search:que});
  
   return (
     <div className='p-2 mt-16 flex flex-col gap-y-4 '>
