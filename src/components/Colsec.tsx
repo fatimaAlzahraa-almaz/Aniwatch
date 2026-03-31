@@ -1,6 +1,7 @@
 import Topcol from "./Topcol"
 import { useAnime } from "../api/aniListApi"
 import type { topColPropsType } from "../types/anime"
+
 const Colsec = () => {
    const topAiring=useAnime({sort:'SCORE_DESC',perPage:4,status:'RELEASING'});
    const mostPopular=useAnime({sort:'POPULARITY_DESC',perPage:4});

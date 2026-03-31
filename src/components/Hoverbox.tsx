@@ -1,12 +1,12 @@
 import Star from '../assets/star_24dp_F9DB78_FILL1_wght600_GRAD0_opsz24.svg?react'
 import Heart from '../assets/favorite_24dp_000000_FILL1_wght600_GRAD0_opsz24.svg?react'
 import Circle from '../assets/play_arrow_30dp_FFFFFF_FILL1_wght600_GRAD0_opsz24.svg?react'
-import type { animeListType } from '../types/anime'
+import type { HoverBoxPropsType } from '../types/anime'
 import parse from 'html-react-parser'
 import {motion} from 'framer-motion'
 import { useFavorite } from '../pages/store/favoritesStore'
 import { useNavigate } from 'react-router-dom'
-const Hoverbox = ({obj,setBoxHover}:{obj:animeListType,setBoxHover:(boxHover:boolean)=>void}) => {
+const Hoverbox = ({obj,setBoxHover}:HoverBoxPropsType) => {
   const{toggleFavorites,favoritesList}=useFavorite();
   const isFav=favoritesList.some((item)=>item.id===obj.id);
   const navigate=useNavigate();

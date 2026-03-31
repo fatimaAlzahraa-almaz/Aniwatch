@@ -1,12 +1,16 @@
 import Maincard from './Maincard'
-import Arleft from '../assets/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg?react'
-import Arright from '../assets/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg?react'
+import Arright from '../assets/keyboard_arrow_right_24dp_FFFFFF_FILL0_wght700_GRAD0_opsz24.svg?react'
+import Arleft from '../assets/keyboard_arrow_left_24dp_000000_FILL0_wght700_GRAD0_opsz24.svg?react'
 import { useAnime } from '../api/aniListApi'
 import LoadingMainCard from './LoadingMainCard'
+import { useNavigate } from 'react-router-dom'
 const Hero = () => {
     
    const{data,isLoading}=useAnime({sort:'TRENDING_DESC',perPage:15});
-
+   const navigate=useNavigate();
+    const handleClick=()=>{
+    navigate(`/top?sort=TRENDING_DESC&perPage=30&page=1`);
+  }
    
    const slideLeft=()=>{
     var slider:null | HTMLElement=document.getElementById('slider');
@@ -27,11 +31,14 @@ const Hero = () => {
     
    }
   return (
-    <div className='w-full relative flex flex-col p-2 '>
-       <p className='sm:text-xl text-lg sm:font-bold font-semibold pb-4  min-w-0 truncate '>Trending Anime</p>
+    <div className='w-full relative flex flex-col p-2 my-3 gap-3'>
+      <div className='flex justify-between'>
+          <p className='sm:text-xl text-lg sm:font-bold font-semibold   min-w-0 truncate '>Trending Anime</p>
+          <button onClick={handleClick} className=' text-gray-300 font-light sm:text-base text-sm    hover:text-yellow-300 group cursor-pointer    flex items-center'>View more <Arright className=' px-1  pt-0.5 fill-gray-300 group-hover:fill-yellow-300'/></button>
+      </div>
       <div className='relative  h-[19rem] sm:h-[26rem] '>
-        <Arleft onClick={slideLeft}  className='cursor-pointer fill-white absolute  top-1/2 -translate-y-1/2 z-4 bg-gray-600/65 hover:bg-gray-600/80 active:bg-black/70 hidden sm:block  w-10 h-10 p-2 pl-3 rounded-3xl'/>
-          <div id='slider' className='flex relative h-full overflow-x-scroll  scrollbar-hide  gap-3 scroll-smooth items-center'>
+        <Arleft onClick={slideLeft}  className='cursor-pointer fill-white absolute  top-1/2 -translate-y-1/2 z-4 bg-gray-600/65 hover:bg-gray-600/80 active:bg-black/70 hidden sm:block p-1 w-10 h-10   rounded-3xl'/>
+          <div id='slider' className='flex relative h-full overflow-x-scroll  scrollbar-hide  gap-2 sm:gap-3 scroll-smooth items-center'>
       {
         (isLoading || !data) ? Array.from({length:15}).map((_,i)=>
         <LoadingMainCard key={i}/>
@@ -48,7 +55,7 @@ const Hero = () => {
       }
         
     </div>
-    <Arright onClick={slideRight} className=' cursor-pointer fill-white absolute right-0 top-1/2 -translate-y-1/2  z-4 c bg-gray-600/65 hidden sm:block  hover:bg-gray-600/80 active:bg-black/70  w-10 h-10 p-2 pr-3 rounded-3xl'/>
+    <Arright onClick={slideRight} className=' cursor-pointer fill-white absolute right-0 top-1/2 -translate-y-1/2  z-4  bg-gray-600/65 hidden sm:block  hover:bg-gray-600/80 active:bg-black/70  w-10 h-10 p-1 rounded-3xl'/>
           <div className='flex relative h-full overflow-x-scroll  scrollbar-hide  gap-3 scroll-smooth '></div>
       </div>
         

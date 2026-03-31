@@ -6,7 +6,6 @@ import { Route,Routes } from 'react-router-dom'
 import './App.css'
 import Top from './pages/Top'
 import AnimeInfo from './pages/AnimeInfo'
-import Search from './pages/Search'
 import Favorites from './pages/Favorites'
 function App() {
   
@@ -20,7 +19,6 @@ function App() {
         <Route path='/' element={<Home/>}></Route>
         <Route path='/top' element={<Top />}></Route>
         <Route path='/info' element={<AnimeInfo/>}></Route>
-        <Route path='/search' element={<Search/>}></Route>
         <Route path='/favorites' element={<Favorites/>}></Route>
       </Routes>
       <Footer/>

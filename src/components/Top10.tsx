@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { useAnime } from '../api/aniListApi'
 import LoadingColCard from './LoadingColCard'
 const Top10 = ( ) => {
- 
-
-
 const navigate=useNavigate();
 const{data,isLoading}=useAnime({sort:'SCORE_DESC',status:'RELEASING',perPage:10});
 const handleClick=()=>{

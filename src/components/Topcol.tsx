@@ -1,4 +1,3 @@
-
 import Colcard from './Colcard'
 import Arrow from '../assets/keyboard_arrow_right_24dp_FFFFFF_FILL0_wght700_GRAD0_opsz24.svg?react'
 import { useNavigate} from 'react-router-dom'

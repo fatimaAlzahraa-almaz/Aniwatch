@@ -49,7 +49,7 @@ const Maincard = ( {obj,i}:{obj:animeListType,i:number}) => {
           
           <div className='flex items-center justify-between pt-3 font-medium  absolute right-1 left-1 bottom-2'>
             <button onClick={handleClick} className='bg-yellow-200 flex text-black items-center justify-center py-1 w-[11rem] rounded-2xl hover:bg-yellow-300 cursor-pointer'> <Play className='  fill-black '/>Watch Now</button>
-              <button onClick={()=>toggleFavorites(obj)} className='bg-gray-100 rounded-full    hover:bg-gray-200 w-8 h-8 flex items-center justify-center'>
+              <button onClick={()=>toggleFavorites(obj)} className='bg-gray-100 rounded-full    hover:bg-gray-200 w-8 h-8 flex items-center justify-center cursor-pointer'>
                  <Heart className={`${isFav ? `fill-red-500`:`fill-black`}`} /></button>
               
           </div>

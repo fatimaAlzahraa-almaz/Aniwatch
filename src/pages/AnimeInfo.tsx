@@ -75,9 +75,9 @@ const AnimeInfo = () => {
       <p className='font-light text-sm sm:text-lg text-gray-300'>{data?.Media.description ? parse(data?.Media.description) : ''}</p>
       <div className='flex gap-2 flex-wrap'>
         {
-          data?.Media.genres.map((el:any)=>{
+          data?.Media.genres.map((el:string,i:number)=>{
             return(
-              <p className=' border-1 border-yellow-200/40  p-1 rounded-3xl text-sm font-light px-2'>{el}</p>
+              <p key={i} className=' border border-yellow-200/40  p-1 rounded-3xl text-sm font-light px-2'>{el}</p>
             )
           })
         }

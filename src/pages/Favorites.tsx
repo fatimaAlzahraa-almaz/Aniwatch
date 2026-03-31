@@ -7,7 +7,7 @@ const Favorites = () => {
       <p className="text-xl font-medium text-yellow-300">My List</p>
        <div className="grid grid-cols-2 min-[480px]:grid-cols-3  min-[640px]:grid-cols-3 min-[768px]:grid-cols-4 min-[1380px]:grid-cols-6 gap-4  w-full ">
        {
-        favoritesList.map((el,i)=>
+        favoritesList.map((el:any,i:number)=>
       <Card obj={el} key={i}/>
       )
       }

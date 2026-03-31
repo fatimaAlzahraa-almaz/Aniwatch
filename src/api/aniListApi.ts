@@ -102,20 +102,30 @@ const animeListQuery=`query($sort:[MediaSort],$page:Int,$perPage:Int,$status:Med
 }}`;
 
 
-export const useAnime=({sort,page=1,perPage=50,status,type='ANIME',format,genre,search}:animeListPropsType={})=>{
-   
+export const useAnime=( props:animeListPropsType={})=>{
+   const{
+     page=1,
+     perPage=50,
+     type='ANIME',
+     ...filters
+   }=props;
+    
   return useQuery({
-  queryKey:['animeList',page,sort,status,format,genre,search,perPage],
+  queryKey:['animeList',page,perPage,{...filters}],
   queryFn:async()=>{
-    const variables:any={};
-    if(sort) variables.sort=[sort];
-    if(status) variables.status=status;
-    if(format) variables.format=format;
-    if(page) variables.page=page;
-    if(perPage) variables.perPage=perPage;
-    if(type) variables.type=type;
-    if(genre) variables.genre=genre;
-    if(search) variables.search=search;
+     
+    const cleanFilters=Object.fromEntries(
+      Object.entries(filters).filter(([_,v])=>v!==null && v!=='')
+    );
+    const variables={
+      page,
+      perPage,
+      type,
+      ...cleanFilters,
+    };
+    
+ 
+    
    const res = await fetch(aniListApi, {
         method: 'POST',
         headers: {

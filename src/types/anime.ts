@@ -61,3 +61,20 @@ export interface animeListType{
     popularity:number|null
   }
 
+export interface HamburgerMenuProps{
+  visible:boolean;
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface HoverBoxPropsType{
+obj:animeListType,
+setBoxHover:(boxHover:boolean)=>void
+}
+
+export interface rowPropsType{
+obj:animeListType[]|null,
+loading:boolean,
+genre?:string|undefined,
+title:string,sort:string,
+status:string
+}

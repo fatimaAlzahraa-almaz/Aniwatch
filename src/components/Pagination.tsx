@@ -29,10 +29,10 @@ const Pagination = ({maxPage=1}:{maxPage:number}) => {
      
         <button onClick={()=>updatePage(Math.max(page-1,1))} disabled={page==1} className="bg-gray-700 sm:w-10 sm:h-10 w-8 h-8 text-center px-2 rounded-4xl cursor-pointer hover:bg-gray-600 active:bg-gray-800 sm:px-3 "><Left   className="p-1 fill-gray-300 hover:fill-yellow-300 "/></button>
       
-       {pagefunc().map((p)=>{
+       {pagefunc().map((p,i)=>{
           return(
              
-           <button onClick={()=>updatePage(p)}  className={` ${p==page ?  'bg-yellow-300 text-black   ':'bg-gray-700   hover:text-yellow-300'} text-center  sm:w-10 sm:h-10 w-8 h-8  rounded-4xl cursor-pointer   active:bg-gray-800`} >{p}</button>
+           <button key={i} onClick={()=>updatePage(p)}  className={` ${p==page ?  'bg-yellow-300 text-black   ':'bg-gray-700   hover:text-yellow-300'} text-center  sm:w-10 sm:h-10 w-8 h-8  rounded-4xl cursor-pointer   active:bg-gray-800`} >{p}</button>
            
           )
         })
