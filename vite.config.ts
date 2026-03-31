@@ -6,14 +6,5 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
   plugins: [react(),tailwindcss(),svgr()],
   
-  server: {
-        proxy: {
-      '/api-anilist': {
-        target: 'https://graphql.anilist.co',
-        changeOrigin: true,
-        rewrite: (path) => path.replace('/^\/api-anilist/', ''),
-       
-      }
-    }
-  },
+  
 })

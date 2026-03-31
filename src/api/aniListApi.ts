@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import type { animeListPropsType  } from "../types/anime";
 
-export const aniListApi='/api-anilist';
+export const aniListApi='https://graphql.anilist.co';
 const genreQuery=`
 query {
   GenreCollection
