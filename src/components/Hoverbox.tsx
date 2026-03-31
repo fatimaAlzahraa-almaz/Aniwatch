@@ -5,9 +5,14 @@ import type { animeListType } from '../types/anime'
 import parse from 'html-react-parser'
 import {motion} from 'framer-motion'
 import { useFavorite } from '../pages/store/favoritesStore'
+import { useNavigate } from 'react-router-dom'
 const Hoverbox = ({obj,setBoxHover}:{obj:animeListType,setBoxHover:(boxHover:boolean)=>void}) => {
   const{toggleFavorites,favoritesList}=useFavorite();
   const isFav=favoritesList.some((item)=>item.id===obj.id);
+  const navigate=useNavigate();
+  const handleClick=()=>{
+    navigate('/info?id='+obj?.id);
+  }
   return (
     
       <motion.div 
@@ -41,7 +46,7 @@ const Hoverbox = ({obj,setBoxHover}:{obj:animeListType,setBoxHover:(boxHover:boo
       </div>
 
       <div className='pb-1 flex items-center justify-between w-full'>
-        <button className='bg-yellow-200 hover:bg-yellow-300 cursor-pointer flex  text-black w-[84%] rounded-3xl text-lg py-1 justify-center items-center'><Circle className='fill-black h-8 pt-0.5 '/>watch now</button>
+        <button onClick={handleClick} className='bg-yellow-200 hover:bg-yellow-300 cursor-pointer flex  text-black w-[84%] rounded-3xl text-lg py-1 justify-center items-center'><Circle className='fill-black h-8 pt-0.5 '/>watch now</button>
         <button onClick={()=>toggleFavorites(obj)} className='bg-white w-10 h-10 rounded-3xl flex items-center justify-center cursor-pointer hover:bg-gray-300'>
           <Heart className={`${isFav ? `fill-red-500`:`fill-black`}`}/>
         </button>

@@ -6,7 +6,7 @@ import type { animeListType } from '../types/anime'
 import LoadingCard from './LoadingCard'
 const Row= ({obj,loading,genre,title,sort,status}:{obj:animeListType[]|null,loading:boolean,genre?:string|undefined,title:string,sort:string,status:string}) => {
   const navigate=useNavigate()
-  const hundleClick=()=>{
+  const handleClick=()=>{
     navigate(`/top?genre=${genre??''}&sort=${sort??''}&status=${status??''}&perPage=30&page=1`);
   }
   return (
@@ -15,7 +15,7 @@ const Row= ({obj,loading,genre,title,sort,status}:{obj:animeListType[]|null,load
          <p className=' text-yellow-200 sm:text-2xl  text-lg font-semibold min-w-0 truncate '>{title}</p>
           <div className='flex text-gray-300 font-light sm:text-base text-sm items-center  hover:text-yellow-300 group cursor-pointer '>
      
-        <button onClick={hundleClick} className='cursor-pointer'>View more</button>
+        <button onClick={handleClick} className='cursor-pointer'>View more</button>
        
       <Arrow className=' px-1  pt-0.5 fill-gray-300 group-hover:fill-yellow-300'/>
      </div>

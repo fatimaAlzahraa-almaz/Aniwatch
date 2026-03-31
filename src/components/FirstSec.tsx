@@ -11,7 +11,7 @@ import LoadingFirstSec from "./LoadingFirstSec"
 const FirstSec = ({obj,loading}:{obj:animeListType[],loading:boolean}) => {
   const[index,setIndex]=useState(0);
   const navigate=useNavigate();
-  const hundleDetailClick=(id:number|null)=>{
+  const handleDetailClick=(id:number|null)=>{
     navigate('/info?id='+id);
   }
   
@@ -22,11 +22,11 @@ const FirstSec = ({obj,loading}:{obj:animeListType[],loading:boolean}) => {
       timeRef.current=null;
     }
   }
-  const hundleArrRight=()=>{
+  const handleArrRight=()=>{
     stopTimer();
     setIndex(prev=>(prev+1)%obj?.length);
   }
-  const hundleArrLeft=()=>{
+  const handleArrLeft=()=>{
     stopTimer();
     setIndex(prev=>(prev-1+obj?.length)%obj?.length);
   }
@@ -69,8 +69,8 @@ const FirstSec = ({obj,loading}:{obj:animeListType[],loading:boolean}) => {
             </div>
          
           <div className="absolute right-0 bottom-1 flex flex-col gap-1  mr-1 sm:mr-2">
-            <button onClick={hundleArrRight} className="bg-gray-500/60 cursor-pointer hover:bg-gray-500/70 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-lg "><Arright className="fill-gray-200 p-0.5 " /></button>
-            <button onClick={hundleArrLeft} className="bg-gray-500/60 cursor-pointer hover:bg-gray-500/70 w-7 h-7 sm:w-8 sm:h-8 flex items-center  justify-center rounded-lg relative"> <Arleft className="fill-gray-200  absolute left-1/4 p-0.5  "/></button>
+            <button onClick={handleArrRight} className="bg-gray-500/60 cursor-pointer hover:bg-gray-500/70 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-lg "><Arright className="fill-gray-200 p-0.5 " /></button>
+            <button onClick={handleArrLeft} className="bg-gray-500/60 cursor-pointer hover:bg-gray-500/70 w-7 h-7 sm:w-8 sm:h-8 flex items-center  justify-center rounded-lg relative"> <Arleft className="fill-gray-200  absolute left-1/4 p-0.5  "/></button>
           </div>
 
             <AnimatePresence  mode="wait" > 
@@ -98,8 +98,8 @@ const FirstSec = ({obj,loading}:{obj:animeListType[],loading:boolean}) => {
                </div>
                <p className="  hidden sm:line-clamp-3 font-extralight text-gray-100 text-lg leading-6 ">{obj[index]?.description ? parse(obj[index]?.description) : ''}</p>
                <div className="flex sm:gap-3 gap-2 font-normal sm:font-medium  flex-wrap">
-                  <button className='bg-yellow-200/90 flex text-black items-center justify-center py-1 sm:py-2 sm:w-[8rem] w-[6rem] rounded-3xl hover:bg-yellow-300/90 cursor-pointer  pr-2  min-w-0  '><Play className='min-w-0 w-4 sm:w-5  fill-black  '/><p className="min-w-0 truncate text-xs sm:text-sm">Watch Now</p></button>
-                  <button className='bg-gray-500/70 flex text-gray-200 items-center justify-center py-1 sm:py-2 w-[4rem] sm:w-[5rem] rounded-3xl hover:bg-gray-500/60 cursor-pointer pl-1 text-xs sm:text-sm min-w-0 ' onClick={()=>hundleDetailClick(obj[index]?.id)}><p className="min-w-0 truncate">Details</p><Arright className='  fill-white  w-3  ml-0.5 min-w-0 '/></button>
+                  <button onClick={()=>handleDetailClick(obj[index]?.id)} className='bg-yellow-200/90 flex text-black items-center justify-center py-1 sm:py-2 sm:w-[8rem] w-[6rem] rounded-3xl hover:bg-yellow-300/90 cursor-pointer  pr-2  min-w-0  '><Play className='min-w-0 w-4 sm:w-5  fill-black  '/><p className="min-w-0 truncate text-xs sm:text-sm">Watch Now</p></button>
+                  <button onClick={()=>handleDetailClick(obj[index]?.id)} className='bg-gray-500/70 flex text-gray-200 items-center justify-center py-1 sm:py-2 w-[4rem] sm:w-[5rem] rounded-3xl hover:bg-gray-500/60 cursor-pointer pl-1 text-xs sm:text-sm min-w-0 '  ><p className="min-w-0 truncate">Details</p><Arright className='  fill-white  w-3  ml-0.5 min-w-0 '/></button>
                </div>
             </motion.div>
                 </AnimatePresence>

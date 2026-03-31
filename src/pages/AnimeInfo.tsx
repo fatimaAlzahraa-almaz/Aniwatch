@@ -4,18 +4,28 @@ import Play from '../assets/play_arrow_30dp_FFFFFF_FILL1_wght600_GRAD0_opsz24.sv
 import Add from '../assets/add_24dp_000000_FILL0_wght500_GRAD0_opsz24.svg?react'
 import Added from '../assets/check_24dp_000000_FILL1_wght600_GRAD0_opsz24.svg?react'
 import {useSearchParams } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import { useAnimeInfo } from '../api/aniListApi'
 import parse from 'html-react-parser'
 import { useFavorite } from './store/favoritesStore'
 import LoadingPage from '../components/LoadingPage'
+import { useEffect } from 'react'
 const AnimeInfo = () => {
   const{favoritesList,toggleFavorites}=useFavorite();
   const[searchParams]=useSearchParams();
   const id:number=Number(searchParams.get('id'));
   const{data,isLoading}=useAnimeInfo({id});
+  const navigate=useNavigate();
+  const handleWatchClick=()=>{
+    navigate('/info?id='+data?.Media.id);
+  }
+  const handleHomeClick=()=>{
+    navigate('/');
+  }
   const isFav=favoritesList.some((item)=>item.id===id);
-
+  useEffect(()=>{
+   window.scrollTo(0,0);
+  },[id])
   if(isLoading)
     return(
   <LoadingPage/>
@@ -32,9 +42,7 @@ const AnimeInfo = () => {
       
        <div className="flex flex-col gap-y-5 sm:gap-y-6  w-full"> 
       <div className="flex items-center gap-2 flex-wrap">
-        <NavLink to='/'>
-          <p className='hover:text-yellow-300 cursor-pointer'>Home</p>
-        </NavLink>
+        <button onClick={handleHomeClick} className='hover:text-yellow-300 cursor-pointer'>Home</button>
         <p className="w-1 h-1 bg-green-400/70 rounded-full"></p>
         <p>{data?.Media.format??'N/A'}</p>
       </div>
@@ -75,7 +83,7 @@ const AnimeInfo = () => {
         }
       </div>
       <div className="flex gap-1 sm:gap-2 text-black text-sm sm:text-lg  sm:justify-normal justify-center flex-wrap">
-        <button className='bg-yellow-200  px-2 sm:px-4 rounded-3xl flex  items-center justify-center p-2 hover:bg-yellow-300 cursor-pointer pr-3 min-w-0 truncate'><Play className='fill-black w-5   '/>Watch now</button>
+        <button onClick={handleWatchClick} className='bg-yellow-200  px-2 sm:px-4 rounded-3xl flex  items-center justify-center p-2 hover:bg-yellow-300 cursor-pointer pr-3 min-w-0 truncate'><Play className='fill-black w-5   '/>Watch now</button>
         {
           isFav ? <button onClick={()=>toggleFavorites(data?.Media)} className='bg-white px-2  sm:px-4 rounded-3xl flex items-center justify-center p-2 hover:bg-gray-100 cursor-pointer pr-3 min-w-0 truncate'><Added className=' w-5'/>Added</button>
           :

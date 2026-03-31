@@ -11,9 +11,11 @@ const Maincard = ( {obj,i}:{obj:animeListType,i:number}) => {
   const navigate=useNavigate();
   const{favoritesList,toggleFavorites}=useFavorite();
   const isFav=favoritesList.some((item)=>item.id===obj.id);
-  const hundleClick=()=>{
-    if(obj?.id)
-   navigate(`/info?id=${obj?.id}`);
+  const handleClick=()=>{
+    if(obj?.id){
+       navigate(`/info?id=${obj?.id}`);
+    }
+    
   
   }
 
@@ -22,18 +24,13 @@ const Maincard = ( {obj,i}:{obj:animeListType,i:number}) => {
    whileHover={{y:-10}}
    transition={{duration:0.3,ease:'easeInOut',delay:0.1}}
    className="sm:w-[14rem] sm:h-[24rem] w-[10rem] h-[17.5rem] shrink-0 bg-gray-800 relative rounded-lg  group  text-gray-100">
-      
-          
-     
-       
-          
      <div  className='w-full sm:h-[20rem] h-[14rem] overflow-hidden relative rounded-t-xl group' >
        
-         <div   onClick={hundleClick} className='absolute z-2 rounded-t-xl cursor-pointer opacity-5 bg-linear-to-t from-black inset-0 sm:group-hover:hidden '></div>
+         <div   onClick={handleClick} className='absolute z-2 rounded-t-xl cursor-pointer opacity-5 bg-linear-to-t from-black inset-0 sm:group-hover:hidden '></div>
          <img  
          className=" absolute inset-0 w-full h-full  object-cover object-center rounded-t-xl  group-hover:scale-105   duration-200 delay-100 sm:group-hover:blur-md " src={obj?.coverImage?.large ?? undefined}/>
-         <div   className='top-0 w-full h-full absolute  translate-y-[100%] text-gray-300   text-sm p-3 bg-gray-800/40 group-hover:translate-y-0 group-hover:transition group-hover:duration-400  cursor-pointer hidden sm:block z-3 flex flex-col'>
-         <div onClick={hundleClick} className='w-full'>
+         <div onClick={handleClick}  className='top-0 w-full h-full absolute  translate-y-[100%] text-gray-300   text-sm p-3 bg-gray-800/40 group-hover:translate-y-0 group-hover:transition group-hover:duration-400  cursor-pointer hidden sm:block z-3 flex flex-col'>
+         <div   className='w-full'>
              <p className='font-semibold pb-2 text-white line-clamp-1 truncate'>{obj?.title?.romaji ?? ''}</p>
           <p className='font-extralight pb-1 line-clamp-8'>{ obj?.description ? parse(obj?.description ) : ''}</p>
           <div className='flex '>
@@ -51,7 +48,7 @@ const Maincard = ( {obj,i}:{obj:animeListType,i:number}) => {
          </div>
           
           <div className='flex items-center justify-between pt-3 font-medium  absolute right-1 left-1 bottom-2'>
-            <button className='bg-yellow-200 flex text-black items-center justify-center py-1 w-[11rem] rounded-2xl hover:bg-yellow-300 cursor-pointer'> <Play className='  fill-black '/>Watch Now</button>
+            <button onClick={handleClick} className='bg-yellow-200 flex text-black items-center justify-center py-1 w-[11rem] rounded-2xl hover:bg-yellow-300 cursor-pointer'> <Play className='  fill-black '/>Watch Now</button>
               <button onClick={()=>toggleFavorites(obj)} className='bg-gray-100 rounded-full    hover:bg-gray-200 w-8 h-8 flex items-center justify-center'>
                  <Heart className={`${isFav ? `fill-red-500`:`fill-black`}`} /></button>
               
@@ -68,7 +65,7 @@ const Maincard = ( {obj,i}:{obj:animeListType,i:number}) => {
       
     <div className="w-full p-1  ">
        
-    <p onClick={hundleClick} className='max-w-[20ch] truncate  cursor-pointer  '>{obj?.title?.romaji??''}</p>
+    <p onClick={handleClick} className='max-w-[20ch] truncate  cursor-pointer  '>{obj?.title?.romaji??''}</p>
     
     <div className='flex w-full items-center justify-between text-xs sm:pt-2'>
       <div className='flex  items-center  '>

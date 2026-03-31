@@ -5,6 +5,7 @@ import Genre from "../components/Genre"
 import Top10 from "../components/Top10"
 import { useAnime } from "../api/aniListApi"
 import LoadingCard from "../components/LoadingCard"
+import { useEffect } from "react"
 const Top = () => {
 
 
@@ -17,8 +18,9 @@ const Top = () => {
   const perPage:number|null=searchParams.get('perPage') ? Number(searchParams.get('perPage')) : null;
   const que=searchParams.get('q');
   const{data,isLoading}=useAnime({sort,page,format,status,genre,perPage,search:que});
-  console.log(isLoading);
-  console.log(data?.Page.media);
+  useEffect(()=>{
+   window.scrollTo(0,0);
+  },[sort,format,page,status,genre,perPage,que])
 
  
   return (

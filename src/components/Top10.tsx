@@ -9,7 +9,7 @@ const Top10 = ( ) => {
 
 const navigate=useNavigate();
 const{data,isLoading}=useAnime({sort:'SCORE_DESC',status:'RELEASING',perPage:10});
-const hundleClick=()=>{
+const handleClick=()=>{
 navigate(`/top?status=RELEASING&sort=SCORE_DESC&perPage=30&page=1`)
 }
 
@@ -31,7 +31,7 @@ navigate(`/top?status=RELEASING&sort=SCORE_DESC&perPage=30&page=1`)
       }
      </div>
      <div className='flex py-4 font-light sm:text-base text-sm items-center gap-1 hover:text-yellow-300 group cursor-pointer'>
-        <button onClick={hundleClick}  className='cursor-pointer'>View more</button>
+        <button onClick={handleClick}  className='cursor-pointer'>View more</button>
       <Arrow className=' px-1 pt-0.5 group-hover:fill-yellow-300'/>
      </div>
       

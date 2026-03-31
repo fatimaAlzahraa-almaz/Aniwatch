@@ -17,19 +17,19 @@ const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
     setVisible(prev=>!prev);
     navigate('/');
   }
-  const hundlePopularClick=()=>{
+  const handlePopularClick=()=>{
     setVisible(prev=>!prev);
     navigate('/top?sort=POPULARITY_DESC&status=FINISHED&perPage=30&page=1');
   }
-  const hundleTvClick=()=>{
+  const handleTvClick=()=>{
     setVisible(prev=>!prev);
     navigate('/top?format=TV&sort=SCORE_DESC&perPage=30&page=1');
   }
-  const hundleMoviesClick=()=>{
+  const handleMoviesClick=()=>{
    setVisible(prev=>!prev);
    navigate('/top?format=MOVIE&sort=SCORE_DESC&perPage=30&page=1')
   }
-  const hundleFavoritesClick=()=>{
+  const handleFavoritesClick=()=>{
     setVisible(prev=>!prev);
     navigate('/favorites')
   }
@@ -49,10 +49,10 @@ const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
          className='absolute bg-gray-800/85   top-0 left-0 bottom-0 flex flex-col h-screen sm:w-80 w-60 font-medium sm:text-lg text-sm z-100'>
         <Close onClick={()=>setVisible(prev=>!prev)} className='sm:w-8 w-7 ml-auto mr-1 cursor-pointer'/>
          <button onClick={hundleHomeclick} className='p-3 border-t flex items-center gap-1 border-gray-500  w-full hover:text-yellow-300 cursor-pointer group'><Home className='fill-white group-hover:fill-yellow-300 w-5'/>Home</button>
-             <button onClick={hundlePopularClick} className='p-3 border-t border-gray-700 hover:text-yellow-300 w-full items-center gap-1 cursor-pointer group flex'><Fire className='fill-white w-5 group-hover:fill-yellow-300'/>Most Popular</button>
-        <button onClick={hundleTvClick} className='p-3 border-t border-gray-700 hover:text-yellow-300 w-full cursor-pointer  flex gap-1 items-center group'><Tv className='fill-white w-4 group-hover:fill-yellow-300'/>TV Series</button>
-        <button onClick={hundleMoviesClick} className='p-3 border-t border-b border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group'><Movie className='fill-white w-4 group-hover:fill-yellow-300'/>Movies</button>
-        <button onClick={hundleFavoritesClick} className='p-3 border-t border-b border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group '><Heart className='fill-white w-4 h-4  group-hover:fill-yellow-300 '/>Favorites</button>
+             <button onClick={handlePopularClick} className='p-3 border-t border-gray-700 hover:text-yellow-300 w-full items-center gap-1 cursor-pointer group flex'><Fire className='fill-white w-5 group-hover:fill-yellow-300'/>Most Popular</button>
+        <button onClick={handleTvClick} className='p-3 border-t border-gray-700 hover:text-yellow-300 w-full cursor-pointer  flex gap-1 items-center group'><Tv className='fill-white w-4 group-hover:fill-yellow-300'/>TV Series</button>
+        <button onClick={handleMoviesClick} className='p-3 border-t border-b border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group'><Movie className='fill-white w-4 group-hover:fill-yellow-300'/>Movies</button>
+        <button onClick={handleFavoritesClick} className='p-3 border-t border-b border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group '><Heart className='fill-white w-4 h-4  group-hover:fill-yellow-300 '/>Favorites</button>
 
        </motion.div>}
        </AnimatePresence>

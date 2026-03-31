@@ -3,7 +3,7 @@ import { useGenre } from "../api/aniListApi";
 const Genre = () => {
   const{data,isLoading}=useGenre();
   const navigate=useNavigate();
-  const hundleToPageClick=(genre:string)=>{
+  const handleToPageClick=(genre:string)=>{
    navigate('/top?genre='+genre+'&sort=SCORE_DESC&perPage=30&page=1');
   }
   
@@ -22,7 +22,7 @@ const Genre = () => {
         data?.GenreCollection.map((el:any,i:number)=>{
           return(
             el!='Hentai' && 
-             <button onClick={()=>hundleToPageClick(el)}  key={i} className={`${i%5==0 ? i%4==0 ?'text-blue-200' :'text-yellow-200':    i%3==0 ? 'text-green-200' : 'text-purple-200'} cursor-pointer  line-clamp-1 truncate hover:bg-gray-700 sm:p-2  p-1 w-full`  }>{el}</button>
+             <button onClick={()=>handleToPageClick(el)}  key={i} className={`${i%5==0 ? i%4==0 ?'text-blue-200' :'text-yellow-200':    i%3==0 ? 'text-green-200' : 'text-purple-200'} cursor-pointer  line-clamp-1 truncate hover:bg-gray-700 sm:p-2  p-1 w-full`  }>{el}</button>
            )
         })
       }
