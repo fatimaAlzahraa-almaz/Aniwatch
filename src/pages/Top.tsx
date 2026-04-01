@@ -33,7 +33,7 @@ const Top = () => {
  
   return (
     <div className="mt-16 p-2 w-full flex">
-      <button onClick={handleClick} className='rounded-3xl   z-100 bg-gray-400/40 active:bg-gray-700  backdrop-blur-xl fixed sm:hidden  bottom-0 right-0  m-2 w-9 h-9 flex items-center justify-center '><Arrow className='fill-white rotate-90  rounded-3xl'/></button>
+      <button onClick={handleClick} className='rounded-3xl   z-100 bg-gray-400/40 active:bg-gray-700  backdrop-blur-xl fixed sm:hidden  bottom-0 right-0  m-3 w-10 h-10 flex items-center justify-center '><Arrow className='fill-white rotate-90  rounded-3xl'/></button>
       <div className="min-[1200px]:flex w-full"> 
     <div className="flex flex-col gap-4 w-full ">
      <div className="grid grid-cols-2 min-[480px]:grid-cols-3  min-[640px]:grid-cols-3 min-[768px]:grid-cols-4 min-[1380px]:grid-cols-6 gap-2 sm:gap-4  w-full ">

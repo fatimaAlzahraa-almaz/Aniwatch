@@ -35,7 +35,7 @@ const Colsec = () => {
   
  
   return (
-    <div className="grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2 bg-gray-800/70 m-1 w-full p-2">
+    <div className="grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2   m-1 w-full p-2 bg-gray-800/70">
       {
         [topAiring,mostPopular,upcoming,topMovies].map((el:any,i:number)=>{
           return(

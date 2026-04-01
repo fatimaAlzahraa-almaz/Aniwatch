@@ -17,7 +17,7 @@ const Colcard = ({obj}:{obj:animeListType}) => {
   }
    
   return (
-    <motion.div className={`flex items-center    w-full border-b border-b-gray-700/70 hover:bg-gray-700/60 relative text-gray-50  duration-100 ease-in-out h-[8rem] p-1`}
+    <motion.div className={`flex items-center    w-full border-b border-b-gray-700/70 hover:bg-gray-700/60   relative text-gray-50  duration-100 ease-in-out h-[8rem] p-1`}
     
    
     >

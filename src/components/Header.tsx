@@ -33,7 +33,7 @@ const Header = () => {
   }
    
   return (
-    <header  className='fixed flex right-0 top-0 left-0 h-16 items-center justify-between  sm:text-xl font-semibold   bg-gray-900/80 z-100 sm:px-3 px-1 w-full'>
+    <header  className='fixed flex right-0 top-0 left-0 h-16 items-center justify-between  sm:text-xl font-semibold   bg-gray-900/95 z-100 sm:px-3 px-1 w-full'>
       <div className='flex items-center gap-1 sm:gap-2 w-full justify-between  sm:justify-start'>
         <Menu onClick={()=>{setVisibleMenu(prev=>!prev)}} className='w-8  cursor-pointer  pt-1 shrink-0'/>
         <div onClick={handleHomeSubmit} className='flex hover:cursor-pointer justify-center items-center '>
