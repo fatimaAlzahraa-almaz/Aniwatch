@@ -4,7 +4,7 @@ const Genre = () => {
   const{data,isLoading}=useGenre();
   const navigate=useNavigate();
   const handleToPageClick=(genre:string)=>{
-   navigate('/top?genre='+genre+'&sort=SCORE_DESC&perPage=30&page=1');
+   navigate('/top?genre='+genre+'&sort=SCORE_DESC&perPage=30&page=1',{state:{title:genre +' Anime'}});
   }
   
 

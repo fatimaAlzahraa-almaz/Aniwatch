@@ -6,7 +6,7 @@ import LoadingCard from './LoadingCard'
 const Row= ({obj,loading,genre,title,sort,status}:rowPropsType) => {
   const navigate=useNavigate()
   const handleClick=()=>{
-    navigate(`/top?genre=${genre??''}&sort=${sort??''}&status=${status??''}&perPage=30&page=1`);
+    navigate(`/top?genre=${genre??''}&sort=${sort??''}&status=${status??''}&perPage=30&page=1`,{state:{title:title}});
   }
   return (
     <div className='flex flex-col  w-full p-2'>

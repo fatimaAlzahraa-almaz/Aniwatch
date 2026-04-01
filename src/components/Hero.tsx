@@ -9,7 +9,7 @@ const Hero = () => {
    const{data,isLoading}=useAnime({sort:'TRENDING_DESC',perPage:15});
    const navigate=useNavigate();
     const handleClick=()=>{
-    navigate(`/top?sort=TRENDING_DESC&perPage=30&page=1`);
+    navigate(`/top?sort=TRENDING_DESC&perPage=30&page=1`,{state:{title:'Trending Anime'}});
   }
    
    const slideLeft=()=>{

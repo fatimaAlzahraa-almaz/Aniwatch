@@ -18,7 +18,7 @@ const Header = () => {
   const handleFormSubmit=(e:React.SubmitEvent<HTMLFormElement>)=>{
    e.preventDefault();
    if(que.trim()){
-    navigate(`/top?q=${que}&perPage=30&page=1`);
+    navigate(`/top?q=${que}&perPage=30&page=1`,{state:{title:'Search results for: '+que}});
    }
    setQue('');
   }

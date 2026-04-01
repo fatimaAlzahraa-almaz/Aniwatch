@@ -13,7 +13,7 @@ function App() {
   return (
     <>
      
-    <div className='bg-gray-900'>
+    <div className='bg-gray-900 flex flex-col h-full min-h-screen justify-between'>
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>

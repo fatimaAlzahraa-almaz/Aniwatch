@@ -1,17 +1,19 @@
 import Left from '../assets/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg?react'
 import Right from '../assets/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg?react';
-import { useSearchParams} from "react-router-dom";
-const Pagination = ({maxPage=1}:{maxPage:number}) => {
+import { useSearchParams,useNavigate} from "react-router-dom";
+const Pagination = ({maxPage=1,title}:{maxPage:number,title:string}) => {
   
-  const[searchParams,setSearchParams]=useSearchParams();
+  const[searchParams]=useSearchParams();
   const genre=searchParams.get('genre');
   const format=searchParams.get('format');
   const page=Number(searchParams.get('page'));
   const sort=searchParams.get('sort');
   const q=searchParams.get('q');
   const status=searchParams.get('status');
+  const navigate=useNavigate();
   const updatePage=(page:number)=>{
-  setSearchParams({format: format ??'',sort : sort ?? '',genre : genre ?? '',q:q??'',status:status??'',page :String(page),perPage:'30' });
+    navigate(`/top?format=${format ??''}&sort=${sort ?? ''}&genre=${genre ?? ''}&status=${status??''}&q=${q??''}&perPage=30&page=${page}`,{state:{title:title}});
+  
   }
  
    const pagefunc=()=>{

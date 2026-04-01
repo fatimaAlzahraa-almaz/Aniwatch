@@ -44,11 +44,9 @@ const FirstSec = ({obj,loading}:{obj:animeListType[],loading:boolean}) => {
    return ()=>stopTimer();
 
   },[obj?.length])
- if(loading || !obj)
-  return(
-<LoadingFirstSec/>
-)
-  
+
+   
+  if(loading || !obj)  return <LoadingFirstSec/>
   return (
    
     <div

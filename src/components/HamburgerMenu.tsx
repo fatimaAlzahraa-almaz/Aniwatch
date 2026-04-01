@@ -18,15 +18,15 @@ const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
   }
   const handlePopularClick=()=>{
     setVisible(prev=>!prev);
-    navigate('/top?sort=POPULARITY_DESC&status=FINISHED&perPage=30&page=1');
+    navigate('/top?sort=POPULARITY_DESC&status=FINISHED&perPage=30&page=1',{state:{title:'Most Popular'}});
   }
   const handleTvClick=()=>{
     setVisible(prev=>!prev);
-    navigate('/top?format=TV&sort=SCORE_DESC&perPage=30&page=1');
+    navigate('/top?format=TV&sort=SCORE_DESC&perPage=30&page=1',{state:{title:'Tv Series'}});
   }
   const handleMoviesClick=()=>{
    setVisible(prev=>!prev);
-   navigate('/top?format=MOVIE&sort=SCORE_DESC&perPage=30&page=1')
+   navigate('/top?format=MOVIE&sort=SCORE_DESC&perPage=30&page=1',{state:{title:'Movies'}})
   }
   const handleFavoritesClick=()=>{
     setVisible(prev=>!prev);
@@ -51,8 +51,8 @@ const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
          <button onClick={handleHomeclick} className='py-3 sm:px-2 px-1 border-t flex items-center gap-1 border-gray-700  w-full hover:text-yellow-300 cursor-pointer group  flex-wrap'><Home className='fill-white group-hover:fill-yellow-300 w-5'/>Home</button>
          <button onClick={handlePopularClick} className='py-3 sm:px-2 px-1 border-t border-gray-700 hover:text-yellow-300 w-full items-center gap-1 cursor-pointer group flex flex-wrap'><Fire className='fill-white w-5 group-hover:fill-yellow-300'/>Most Popular</button>
         <button onClick={handleTvClick} className='py-3 sm:px-2 px-1 border-t border-gray-700 hover:text-yellow-300 w-full cursor-pointer  flex gap-1 items-center group'><Tv className='fill-white w-4 group-hover:fill-yellow-300 flex-wrap'/>TV Series</button>
-        <button onClick={handleMoviesClick} className='py-3 sm:px-2 px-1 border-t border-b border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group flex-wrap'><Movie className='fill-white w-4 group-hover:fill-yellow-300'/>Movies</button>
-        <button onClick={handleFavoritesClick} className='py-3 sm:px-2 px-1 border-t border-b border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group flex-wrap'><Heart className='fill-white w-4 h-4  group-hover:fill-yellow-300 '/>Favorites</button>
+        <button onClick={handleMoviesClick} className='py-3 sm:px-2 px-1 border-t  border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group flex-wrap'><Movie className='fill-white w-4 group-hover:fill-yellow-300'/>Movies</button>
+        <button onClick={handleFavoritesClick} className='py-3 sm:px-2 px-1 border-t border-b border-gray-700 hover:text-yellow-300 w-full cursor-pointer flex items-center gap-1 group flex-wrap'><Heart className='fill-white w-4  h-4 group-hover:fill-yellow-300 '/>Favorites</button>
 
        </motion.div>}
        </AnimatePresence>
