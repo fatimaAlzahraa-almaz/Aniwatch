@@ -29,8 +29,8 @@ const Maincard = ( {obj,i}:{obj:animeListType,i:number}) => {
          <div   onClick={handleClick} className='absolute z-2 rounded-t-xl cursor-pointer opacity-5 bg-linear-to-t from-black inset-0 sm:group-hover:hidden '></div>
          <img  
          className=" absolute inset-0 w-full h-full  object-cover object-center rounded-t-xl  group-hover:scale-105   duration-200 delay-100 sm:group-hover:blur-md " src={obj?.coverImage?.large ?? undefined}/>
-         <div onClick={handleClick}  className='top-0 w-full h-full absolute  translate-y-[100%] text-gray-300   text-sm p-3 bg-gray-800/40 group-hover:translate-y-0 group-hover:transition group-hover:duration-400  cursor-pointer hidden sm:block z-3 flex flex-col'>
-         <div   className='w-full'>
+         <div   className='top-0 w-full h-full absolute  translate-y-[100%] text-gray-300   text-sm p-3 bg-gray-800/40 group-hover:translate-y-0 group-hover:transition group-hover:duration-400  cursor-pointer hidden sm:block z-3 flex flex-col'>
+         <div  onClick={handleClick}  className='w-full '>
              <p className='font-semibold pb-2 text-white line-clamp-1 truncate'>{obj?.title?.romaji ?? ''}</p>
           <p className='font-extralight pb-1 line-clamp-8'>{ obj?.description ? parse(obj?.description ) : ''}</p>
           <div className='flex '>
@@ -48,8 +48,8 @@ const Maincard = ( {obj,i}:{obj:animeListType,i:number}) => {
          </div>
           
           <div className='flex items-center justify-between pt-3 font-medium  absolute right-1 left-1 bottom-2'>
-            <button onClick={handleClick} className='bg-yellow-200 flex text-black items-center justify-center py-1 w-[11rem] rounded-2xl hover:bg-yellow-300 cursor-pointer'> <Play className='  fill-black '/>Watch Now</button>
-              <button onClick={()=>toggleFavorites(obj)} className='bg-gray-100 rounded-full    hover:bg-gray-200 w-8 h-8 flex items-center justify-center cursor-pointer'>
+            <button onClick={handleClick} className='bg-yellow-200 flex text-black items-center justify-center py-1 w-[11rem] rounded-2xl hover:bg-yellow-300 cursor-pointer '> <Play className='  fill-black '/>Watch Now</button>
+              <button onClick={()=>toggleFavorites(obj)} className='bg-gray-100 rounded-full    hover:bg-gray-200 w-8 h-8 flex items-center justify-center cursor-pointer '>
                  <Heart className={`${isFav ? `fill-red-500`:`fill-black`}`} /></button>
               
           </div>

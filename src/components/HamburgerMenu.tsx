@@ -1,5 +1,6 @@
 
 import {motion,AnimatePresence} from 'motion/react'
+import { useEffect } from 'react'
 import Close from '../assets/close_40dp_FFFFFF.svg?react'
 import Home from '../assets/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg?react'
 import Fire from '../assets/local_fire_department_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg?react'
@@ -11,6 +12,15 @@ import type {HamburgerMenuProps} from '../types/anime'
 
 const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
   const navigate=useNavigate();
+  useEffect(()=>{
+    if(visible)
+      document.body.style.overflow='hidden';
+    else
+      document.body.style.overflow='auto';
+    return ()=>{
+      document.body.style.overflow='auto';
+    }
+  },[visible])
   const handleHomeclick=()=>{
     setVisible(prev=>!prev);
     navigate('/');
@@ -36,7 +46,7 @@ const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
   return(
     <> 
    { visible && <div
-      onClick={() => setVisible(false)}
+      onClick={() =>setVisible(false)}
       className="fixed inset-0 bg-black/50 z-40"
     />
    }
@@ -46,7 +56,7 @@ const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
          animate={{x:0}}
          exit={{x:'-100%'}}
          transition={{duration:0.3,ease:'easeOut'}}
-         className='fixed bg-gray-900/90   top-0 left-0 bottom-0 flex flex-col  sm:w-1/4 w-[60%] font-medium sm:text-lg text-sm z-100'>
+         className='fixed bg-gray-800 backdrop-blur-2xl   top-0 left-0 bottom-0 flex flex-col  sm:w-1/4 w-[60%] font-medium sm:text-lg text-sm z-100 overflow-hidden'>
         <Close onClick={()=>setVisible(prev=>!prev)} className='sm:w-8 w-7 ml-auto mr-1 cursor-pointer'/>
          <button onClick={handleHomeclick} className='py-3 sm:px-2 px-1 border-t flex items-center gap-1 border-gray-700  w-full hover:text-yellow-300 cursor-pointer group  flex-wrap'><Home className='fill-white group-hover:fill-yellow-300 w-5'/>Home</button>
          <button onClick={handlePopularClick} className='py-3 sm:px-2 px-1 border-t border-gray-700 hover:text-yellow-300 w-full items-center gap-1 cursor-pointer group flex flex-wrap'><Fire className='fill-white w-5 group-hover:fill-yellow-300'/>Most Popular</button>

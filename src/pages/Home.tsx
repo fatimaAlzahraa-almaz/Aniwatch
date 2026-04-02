@@ -29,7 +29,7 @@ const Home = () => {
             <Row obj={horrorAnime?.data?.Page.media} loading={horrorAnime.isLoading}   title={'Latest Completed'} status={'FINISHED'} sort={'END_DATE_DESC'}  />
              <Row obj={actionAnime?.data?.Page.media} loading={actionAnime.isLoading} genre={"Action"} title={'Action Anime'} status={'RELEASING'} sort={'SCORE_DESC'}/>
           </div>
-           <div className='flex flex-col  '>
+           <div className='flex flex-col w-full md:max-w-70 lg:max-w-100 '>
         <Genre  />
         <Top10/>
            </div>

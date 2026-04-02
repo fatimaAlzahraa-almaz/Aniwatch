@@ -9,10 +9,10 @@ const Genre = () => {
   
 
   return (
-    <div className=" w-full min-w-0 sm:min-w-[16rem] p-2">
+    <div className=" w-full min-w-0 sm:min-w-[16rem]  p-2">
      <p className="text-lg sm:font-bold font-medium pb-4 min-w-0 truncate ">Genres</p>
      
-    <div  className=" bg-gray-800  grid grid-cols-3 backdrop-blur-2xl  justify-items-center p-4 sm:p-2">
+    <div  className=" bg-gray-800  grid grid-cols-3 backdrop-blur-2xl  justify-items-center p-2 text-sm">
           
          { (isLoading || !data) ?  Array.from({length:18}).map((_,i)=>
          <button   key={i} className='  max-w-[10ch] truncate  w-[95%] h-7 bg-gray-700 m-1  rounded-2xl'  ></button>

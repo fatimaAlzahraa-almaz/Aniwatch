@@ -51,9 +51,9 @@ const AnimeInfo = () => {
        
           
           <div className='flex items-center sm
-             bg-gray-700 rounded-2xl  justify-center px-2 gap-0.5 py-1'>
+             bg-gray-700 rounded-2xl  justify-center px-2  py-1'>
             <Time className='fill-white  w-3'/>
-            <p className='line-clamp-1 '>{data?.Media.duration ? data?.Media.duration +' m' :'N/A'}</p>
+            <p className='line-clamp-1 '>{data?.Media.duration ? data?.Media.duration +'m' :'N/A'}</p>
           </div>
           
         
@@ -64,8 +64,8 @@ const AnimeInfo = () => {
               <p>{data?.Media.status??'N/A'}</p>
          </div>
         
-          <div className='flex items-center justify-center  bg-gray-700 rounded-2xl px-2 gap-0.5 py-1'>
-            <Star className=' w-4'/>
+          <div className='flex items-center justify-center  bg-gray-700 rounded-2xl px-2  py-1'>
+            <Star className='w-4 h-4'/>
             <p>{data?.Media.averageScore ?  data?.Media.averageScore/10 : 'N/A'}</p>
           </div>
             

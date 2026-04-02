@@ -57,7 +57,7 @@ const Top = () => {
     </div>
      <Pagination maxPage={data?.Page.pageInfo.lastPage} title={title}/>
     </div>
-    <div className="flex-col ">
+    <div className="flex flex-col w-full min-[1200px]:max-w-100">
       <Genre/>
       <Top10/>
     </div>

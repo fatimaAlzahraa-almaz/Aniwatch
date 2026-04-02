@@ -31,10 +31,10 @@ const Hero = () => {
     
    }
   return (
-    <div className='w-full relative flex flex-col p-2 my-3 gap-3'>
+    <div className='w-full relative flex flex-col p-2  gap-3'>
       <div className='flex justify-between'>
           <p className='sm:text-xl text-lg sm:font-bold font-semibold   min-w-0 truncate '>Trending Anime</p>
-          <button onClick={handleClick} className=' text-gray-300 font-light sm:text-base text-sm    hover:text-yellow-300 group cursor-pointer    flex items-center'>View more <Arright className=' px-1  pt-0.5 fill-gray-300 group-hover:fill-yellow-300'/></button>
+          <button onClick={handleClick} className=' text-gray-300 font-light sm:text-base text-sm    hover:text-yellow-300 group cursor-pointer    flex items-center '>View more <Arright className=' px-1  pt-0.5 fill-gray-300 group-hover:fill-yellow-300'/></button>
       </div>
       <div className='relative  h-[19rem] sm:h-[26rem] '>
         <Arleft onClick={slideLeft}  className='cursor-pointer fill-white absolute  top-1/2 -translate-y-1/2 z-4 bg-gray-600/65 hover:bg-gray-600/80 active:bg-black/70 hidden sm:block p-1 w-10 h-10   rounded-3xl'/>
