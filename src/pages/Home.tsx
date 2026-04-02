@@ -19,7 +19,7 @@ const Home = () => {
   }
   return (
     <div className='mt-16  flex flex-col w-full'>
-      <button onClick={handleClick} className='rounded-3xl   z-100 bg-gray-400/40 active:bg-gray-700  backdrop-blur-xl fixed sm:hidden  bottom-0 right-0  m-3 w-10 h-10  flex items-center justify-center'><Arrow className='fill-white rotate-90   rounded-3xl'/></button>
+      <button onClick={handleClick} className='rounded-3xl   z-90 bg-gray-400/40 active:bg-gray-700  backdrop-blur-xl fixed sm:hidden  bottom-0 right-0  m-3 w-10 h-10  flex items-center justify-center'><Arrow className='fill-white rotate-90   rounded-3xl'/></button>
     <FirstSec obj={trendingAnime?.data?.Page?.media} loading={trendingAnime.isLoading} />
     <Hero  />
         <Colsec   />

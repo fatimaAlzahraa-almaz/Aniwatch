@@ -47,7 +47,7 @@ const HamburgerMenu = ({visible,setVisible}:HamburgerMenuProps) => {
     <> 
    { visible && <div
       onClick={() =>setVisible(false)}
-      className="fixed inset-0 bg-black/50 z-40"
+      className="fixed inset-0 bg-black/50 z-100"
     />
    }
    <AnimatePresence> 
