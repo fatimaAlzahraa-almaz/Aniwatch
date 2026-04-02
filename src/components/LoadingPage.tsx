@@ -2,7 +2,7 @@ import {motion} from 'framer-motion'
 
 const LoadingPage = () => {
   return (
-     <div className='mt-16 bg-gray-900 w-screen h-[80vh] flex flex-col items-center justify-center gap-7'>
+     <div className='mt-16 bg-gray-900 w-full h-[80vh] flex  items-center justify-center '>
   <div className='flex gap-1  p-4'>
     {
       Array.from({length:4}).map((_,i)=>{
