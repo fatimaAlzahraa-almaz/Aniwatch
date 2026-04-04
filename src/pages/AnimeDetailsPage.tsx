@@ -5,7 +5,7 @@ import Add from "../assets/add_24dp_000000_FILL0_wght500_GRAD0_opsz24.svg?react"
 import Added from "../assets/check_24dp_000000_FILL1_wght600_GRAD0_opsz24.svg?react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useAnimeInfo } from "../queries/anime.queries";
+import { useAnimeInfo } from "../api/anime.queries"
 import parse from "html-react-parser";
 import { useFavoritesStore } from "../store/useFavoritesStore";
 import LoadingPage from "../components/skeleton/LoadingPage";

@@ -1,7 +1,7 @@
 import TrendingAnimeCard from "../anime/TrendingAnimeCard";
 import Arright from "../../assets/keyboard_arrow_right_24dp_FFFFFF_FILL0_wght700_GRAD0_opsz24.svg?react";
 import Arleft from "../../assets/keyboard_arrow_left_24dp_000000_FILL0_wght700_GRAD0_opsz24.svg?react";
-import { useAnime } from "../../queries/anime.queries";
+import { useAnime } from "../../api/anime.queries"
 import LoadingTrendingCard from "../skeleton/LoadingTrendingCard";
 import { useNavigate } from "react-router-dom";
 const TrendingAnimeSection = () => {

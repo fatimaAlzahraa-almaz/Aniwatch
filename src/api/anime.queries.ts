@@ -5,7 +5,7 @@ import type {
   animeListResponse,
   genreResponse,
 } from "../types/types";
-import { anilistClient } from "../services/animeClient";
+import { anilistClient } from "./animeClient";
 import { animeListQuery, animeInfoQuery, genreQuery } from "./anime.graphql";
 export const useAnime = (props: animeListPropsType = {}) => {
   const { page = 1, perPage = 50, type = "ANIME", ...filters } = props;

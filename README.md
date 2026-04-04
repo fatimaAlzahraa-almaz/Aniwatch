@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+ #  AniWatch – Anime Discovery Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AniWatch is a modern anime discovery web application built with **React + TypeScript** that allows users to explore anime, apply filters, browse paginated results, view detailed anime information, and manage a persistent favorites list.
 
-Currently, two official plugins are available:
+The application integrates the AniList GraphQL API and applies modern frontend architecture patterns such as server-state caching, pagination, and smooth UI animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+##  Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+https://aniwatch-1ga3.vercel.app
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##  Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* Browse anime using filters (genre, format, search)
+* Dynamic pagination with TanStack Query
+* Detailed anime information page
+* Rotating featured anime section on homepage
+* Favorites system with local persistence (Zustand + localStorage)
+* Smart API caching with TanStack Query
+* Loading components for improved UX
+* Smooth UI animations using Framer Motion
+* Responsive UI built with TailwindCSS
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+##  Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+* React
+* TypeScript
+* TailwindCSS
+* TanStack Query
+* Zustand
+* React Router
+* Framer Motion
+* AniList GraphQL API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+##  Installation
+
+git clone https://github.com/fatimaAlzahraa-almaz/Aniwatch.git
+
+cd Aniwatch
+
+npm install
+
+npm run dev
+
+---
+

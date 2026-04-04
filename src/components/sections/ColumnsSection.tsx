@@ -1,5 +1,5 @@
 import TopAnimeColumn from "../anime/TopAnimeColumn";
-import { useAnime } from "../../queries/anime.queries";
+import { useAnime } from "../../api/anime.queries"
 import type { topColPropsType } from "../../types/types";
 
 const ColumnsSection = () => {

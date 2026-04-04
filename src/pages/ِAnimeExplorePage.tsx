@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import Pagination from "../components/ui/Pagination";
 import GenresFilter from "../components/anime/GenresFilter";
 import TopTenAnime from "../components/anime/TopTenAnime";
-import { useAnime } from "../queries/anime.queries";
+import { useAnime } from "../api/anime.queries"
 import LoadingAnimeCard from "../components/skeleton/LoadingAnimeCard";
 import { useEffect } from "react";
 import Arrow from "../assets/keyboard_arrow_left_24dp_000000_FILL0_wght700_GRAD0_opsz24.svg?react";
@@ -56,22 +56,19 @@ const AnimeExplorePage = () => {
           <p className="sm:text-xl  text-lg font-medium  min-w-0 truncate ">
             {title}
           </p>
-          {
-             error ? <ErrorMessage refetch={refetch}/>
-             :
-          
-          <div className="grid grid-cols-2 min-[480px]:grid-cols-3  min-[640px]:grid-cols-3 min-[768px]:grid-cols-4 min-[1380px]:grid-cols-6 gap-2 sm:gap-4  w-full ">
-            {isLoading ? (
-              Array.from({ length: 30 }).map((_, i) => (
-                <LoadingAnimeCard key={i} />
-              ))
-            ) :   (
-              data?.Page?.media?.map((el: any, i: number) => {
-                return <AnimeCard obj={el} key={i} />;
-              })
-            )}
-          </div>
-              }
+          {error ? (
+            <ErrorMessage refetch={refetch} />
+          ) : (
+            <div className="grid grid-cols-2 min-[480px]:grid-cols-3  min-[640px]:grid-cols-3 min-[768px]:grid-cols-4 min-[1380px]:grid-cols-6 gap-2 sm:gap-4  w-full ">
+              {isLoading
+                ? Array.from({ length: 30 }).map((_, i) => (
+                    <LoadingAnimeCard key={i} />
+                  ))
+                : data?.Page?.media?.map((el: any, i: number) => {
+                    return <AnimeCard obj={el} key={i} />;
+                  })}
+            </div>
+          )}
           <Pagination
             maxPage={data?.Page?.pageInfo?.lastPage ?? 1}
             title={title}

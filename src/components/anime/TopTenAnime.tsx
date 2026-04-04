@@ -1,5 +1,5 @@
 import AnimeColumnCard from "./AnimeColumnCard";
-import { useAnime } from "../../queries/anime.queries";
+import { useAnime } from "../../api/anime.queries"
 import LoadingColumnCard from "../skeleton/LoadingColumnCard";
 const TopTenAnime = () => {
   const { data, isLoading } = useAnime({
@@ -15,7 +15,9 @@ const TopTenAnime = () => {
       </p>
       <div>
         {isLoading || !data
-          ? Array.from({ length: 10 }).map((_, i) => <LoadingColumnCard key={i} />)
+          ? Array.from({ length: 10 }).map((_, i) => (
+              <LoadingColumnCard key={i} />
+            ))
           : data?.Page?.media?.map((el: any, i: number) => {
               return <AnimeColumnCard obj={el} key={i} />;
             })}

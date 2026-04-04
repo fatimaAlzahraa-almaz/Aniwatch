@@ -3,7 +3,7 @@ import TrendingAnimeSection from "../components/sections/TrendingAnimeSection";
 import ColumnsSection from "../components/sections/ColumnsSection";
 import GenresFilter from "../components/anime/GenresFilter";
 import TopTenAnime from "../components/anime/TopTenAnime";
-import { useAnime } from "../queries/anime.queries";
+import { useAnime } from "../api/anime.queries"
 import FeaturedSection from "../components/sections/FeaturedSection";
 import Arrow from "../assets/keyboard_arrow_left_24dp_000000_FILL0_wght700_GRAD0_opsz24.svg?react";
 
@@ -61,7 +61,6 @@ const HomePage = () => {
           <TopTenAnime />
         </div>
       </div>
-      
     </div>
   );
 };

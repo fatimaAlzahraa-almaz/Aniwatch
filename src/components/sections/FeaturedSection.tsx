@@ -7,10 +7,10 @@ import parse from "html-react-parser";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import LoadingFeaturedSection from "../skeleton/LoadingFeaturedSection";
-import { useAnime } from "../../queries/anime.queries";
+import { useAnime } from "../../api/anime.queries"
 import ErrorMessage from "../skeleton/ErrorMessage";
 const FeaturedSection = () => {
-  const { data, isLoading,error,refetch } = useAnime({
+  const { data, isLoading, error, refetch } = useAnime({
     sort: "TRENDING_DESC",
     format: "TV",
     status: "FINISHED",
@@ -54,8 +54,8 @@ const FeaturedSection = () => {
     return () => stopTimer();
   }, [data?.Page?.media?.length]);
 
-  if (isLoading ) return <LoadingFeaturedSection />;
-  if(error) return <ErrorMessage refetch={refetch}/>
+  if (isLoading) return <LoadingFeaturedSection />;
+  if (error) return <ErrorMessage refetch={refetch} />;
   return (
     <div className="w-full sm:h-[30rem] h-[20rem] relative overflow-hidden   ">
       <div className="w-full h-full relative">

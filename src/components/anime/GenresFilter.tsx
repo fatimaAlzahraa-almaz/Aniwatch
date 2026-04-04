@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useGenre } from "../../queries/anime.queries";
+import { useGenre } from "../../api/anime.queries"
 const GenresFilter = () => {
   const { data, isLoading } = useGenre();
   const navigate = useNavigate();
