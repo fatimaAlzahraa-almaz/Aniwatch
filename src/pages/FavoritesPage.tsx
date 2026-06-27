@@ -5,7 +5,7 @@ import Close from "../assets/close_40dp_FFFFFF.svg?react";
 const FavoritesPage = () => {
   const { favoritesList, toggleFavorites } = useFavoritesStore();
   return (
-    <div className="mt-16 p-2 flex flex-col w-full gap-y-4 ">
+    <div className="mt-16 p-2 flex flex-col w-full gap-y-4 min-h-screen ">
       <p className="sm:text-xl  text-lg font-semibold text-yellow-200  min-w-0 truncate ">
         My List
       </p>
